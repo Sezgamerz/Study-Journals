@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Study Journals</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+    .tagline {
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .post-form, .post {
+      background-color: white;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+    .post-entry {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #eef5e9;
+      border-left: 5px solid #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Study Journals</h1>
+    <p class="tagline">Let’s Grow Together — One Journal at a Time.</p>
+  </header>
+
+  <div class="container">
+    <div class="post-form">
+      <h2>📝 Share Your Study Story</h2>
+      <textarea id="journalInput" placeholder="How was your day? What did you study? Any struggles? Write here..."></textarea>
+      <br>
+      <button onclick="addPost()">Post My Journal</button>
+    </div>
+
+    <div id="postsArea">
+      <h2>🌟 Other Students’ Journals</h2>
+    </div>
+  </div>
+
+  <script>
+    function addPost() {
+      const input = document.getElementById("journalInput");
+      const text = input.value.trim();
+
+      if (text !== "") {
+        const postArea = document.getElementById("postsArea");
+        const newPost = document.createElement("div");
+        newPost.className = "post-entry";
+        newPost.textContent = text;
+        postArea.appendChild(newPost);
+        input.value = "";
+      } else {
+        alert("Please write something first!");
+      }
+    }
+  </script>
+</body>
+</html>
